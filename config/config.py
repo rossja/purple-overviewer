@@ -68,13 +68,13 @@ renders["day_complete_smooth"] = {
 #     'markers': markerList
 # }
 
-renders["nether"] = {
-    "world": "purple_nether",
-    "title": "Nether",
-    "rendermode": "nether",
-    "dimension": "nether",
-    # 'crop': (-200, -200, 200, 200)
-}
+# renders["nether"] = {
+#     "world": "purple_nether",
+#     "title": "Nether",
+#     "rendermode": "nether",
+#     "dimension": "nether",
+#     # 'crop': (-200, -200, 200, 200)
+# }
 
 # Import the Observers
 from .observer import MultiplexingObserver, ProgressBarObserver, JSObserver
