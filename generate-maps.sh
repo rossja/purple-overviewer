@@ -5,7 +5,7 @@
 BASE_DIR="/Users/json/src/purple.mcserver.io"
 
 # location of the world files
-SERVER_DIR="$BASE_DIR/papermc"
+SERVER_DIR="$BASE_DIR"
 
 # location of the generated map files
 EXPORT_DIR="$BASE_DIR/overviewer/maps"
