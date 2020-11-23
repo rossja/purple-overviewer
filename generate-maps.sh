@@ -2,19 +2,19 @@
 
 # base location
 #BASE_DIR="/Users/username/src"
-BASE_DIR="/Users/json/src/purple.mcserver.io"
+BASE_DIR="/Users/json/src"
 
 # location of the world files
-SERVER_DIR="$BASE_DIR"
+SERVER_DIR="$BASE_DIR/purple.mc"
 
 # location of the generated map files
-EXPORT_DIR="$BASE_DIR/overviewer/maps"
+EXPORT_DIR="$BASE_DIR/purple-overviewer/maps"
 
 # location of optional texture packs
-TEXTURE_DIR="$BASE_DIR/overviewer/textures"
+TEXTURE_DIR="$BASE_DIR/purple-overviewer/textures"
 
 # custom config dir
-CONFIG_DIR="$BASE_DIR/overviewer/config"
+CONFIG_DIR="$BASE_DIR/purple-overviewer/config"
 
 genPoi () {
   docker run \
