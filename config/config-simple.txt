@@ -1,23 +1,19 @@
-global escape
-from cgi import escape
-
-worlds["purple"] = "/tmp/server/world/"
-worlds["purple_nether"] = "/tmp/server/world_nether/"
+worlds["purple"] = "/Users/json/src/purple.mc/world"
+worlds["purple_nether"] = "/Users/json/src/purple.mc/world_nether"
 
 # default textures
-#texturepath = "/tmp/textures/1.16.4.jar"
+#texturepath = "/Users/json/src/purple-overviewer/textures/1.16.4.jar"
 
 # custom textures
-texturepath = "/tmp/textures/"
-# texturepath = "/tmp/textures/ChromaHills-128x-1.15-v1.zip"
-# texturepath = "/tmp/textures/Monsterley_128_15_200405.zip"
+texturepath = "/Users/json/src/purple-overviewer/textures/Faraway.zip"
+#texturepath = "/Users/json/src/purple-overviewer/textures/Amberstone-355.zip"
 
 # output directory
-outputdir = "/tmp/export/"
+outputdir = "/Users/json/src/purple-overviewer/maps"
 
 processes = 8
 defaultzoom = 5
-my_crop = (-2000, -2000, 2000, 2000)
+my_crop = (-3000, -3000, 3000, 3000)
 
 def playerIcons(poi):
     if poi['id'] == 'Player':
@@ -75,17 +71,5 @@ renders["nether"] = {
      "title": "Nether",
      "rendermode": "nether",
      "dimension": "nether",
-     'crop': (-500, -500, 500, 500)
- }
-
-# Import the Observers
-from .observer import MultiplexingObserver, ProgressBarObserver, JSObserver
-
-# Construct the ProgressBarObserver
-pbo = ProgressBarObserver()
-
-# Construct a basic JSObserver
-jsObserver = JSObserver(outputdir, 30)
-
-# Set the observer to a MultiplexingObserver
-observer = MultiplexingObserver(pbo, jsObserver)
+     'crop': (-800, -800, 800, 800)
+}

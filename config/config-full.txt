@@ -1,23 +1,17 @@
-global escape
-from cgi import escape
-
-worlds["purple"] = "/tmp/server/world/"
-worlds["purple_nether"] = "/tmp/server/world_nether/"
+worlds["purple"] = "/Users/json/src/purple.mc/world"
+worlds["purple_nether"] = "/Users/json/src/purple.mc/world_nether"
 
 # default textures
-#texturepath = "/tmp/textures/1.16.4.jar"
+#texturepath = "/Users/json/src/purple-overviewer/textures/1.16.4.jar"
 
 # custom textures
-texturepath = "/tmp/textures/"
-# texturepath = "/tmp/textures/ChromaHills-128x-1.15-v1.zip"
-# texturepath = "/tmp/textures/Monsterley_128_15_200405.zip"
+texturepath = "/Users/json/src/purple-overviewer/textures"
 
 # output directory
-outputdir = "/tmp/export/"
+outputdir = "/Users/json/src/purple-overviewer/maps"
 
 processes = 8
 defaultzoom = 5
-my_crop = (-2000, -2000, 2000, 2000)
 
 def playerIcons(poi):
     if poi['id'] == 'Player':
@@ -35,11 +29,6 @@ def signFilter(poi):
         text = "\n".join(map(escape, [poi['Text1'], poi['Text2'], poi['Text3'], poi['Text4']]))
         if text.__contains__('...'):
             text.replace('...', '')
-        # if text.__eq__(''):
-        #     return # return nothing if the sign is blank (because farms)
-        # else:
-        #     return text # otherwise return the content of the sign
-        return text
 
 def chestFilter(poi):
     if poi['id'] == 'Chest' or poi['id'] == 'minecraft:chest':
@@ -57,7 +46,6 @@ renders["day_complete_smooth"] = {
     'title': 'Day',
     'rendermode': 'smooth_lighting',
     "dimension": "overworld",
-    'crop': my_crop,
     'markers': markerList
 }
 
@@ -66,7 +54,6 @@ renders["night_complete"] = {
      'title': 'Night',
      'rendermode': 'smooth_night',
      "dimension": "overworld",
-     'crop': my_crop,
      'markers': markerList
 }
 
@@ -77,15 +64,3 @@ renders["nether"] = {
      "dimension": "nether",
      'crop': (-500, -500, 500, 500)
  }
-
-# Import the Observers
-from .observer import MultiplexingObserver, ProgressBarObserver, JSObserver
-
-# Construct the ProgressBarObserver
-pbo = ProgressBarObserver()
-
-# Construct a basic JSObserver
-jsObserver = JSObserver(outputdir, 30)
-
-# Set the observer to a MultiplexingObserver
-observer = MultiplexingObserver(pbo, jsObserver)

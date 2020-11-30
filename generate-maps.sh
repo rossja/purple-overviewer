@@ -14,7 +14,8 @@ EXPORT_DIR="$BASE_DIR/purple-overviewer/maps"
 TEXTURE_DIR="$BASE_DIR/purple-overviewer/textures"
 
 # custom config dir
-CONFIG_DIR="$BASE_DIR/purple-overviewer/config"
+#CONFIG_DIR="$BASE_DIR/purple-overviewer/config"
+CONFIG_DIR="$PWD/config"
 
 genPoi () {
   docker run \
@@ -45,3 +46,4 @@ genMaps () {
 
 # run everything consecutively
 genPoi && genMaps
+echo -e "\nMaps created!\n"
