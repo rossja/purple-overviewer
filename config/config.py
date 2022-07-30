@@ -12,7 +12,7 @@ outputdir = "/tmp/export/"
 
 processes = 8
 defaultzoom = 5
-my_crop = (-1000, -1000, 1000, 1000)
+my_crop = (-2000, -2000, 2000, 2000)
 
 def playerIcons(poi):
     if poi['id'] == 'Player':
