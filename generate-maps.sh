@@ -1,26 +1,27 @@
 #!/bin/bash
 
 # base location
-#BASE_DIR="/Users/username/src"
 BASE_DIR="/Users/json/src"
 
 # location of the world files
-SERVER_DIR="$BASE_DIR/purple.mc"
+WORLD_DIR="$BASE_DIR/purple"
 
-# location of the generated map files
-EXPORT_DIR="$BASE_DIR/purple-overviewer/maps"
+# location of the overviewer dir
+OVERVIEW_DIR="$BASE_DIR/purple-overviewer"
+
+# where to put the generated map files
+EXPORT_DIR="$OVERVIEW_DIR/maps"
 
 # location of optional texture packs
-TEXTURE_DIR="$BASE_DIR/purple-overviewer/textures"
+TEXTURE_DIR="$OVERVIEW_DIR/textures"
 
 # custom config dir
-#CONFIG_DIR="$BASE_DIR/purple-overviewer/config"
-CONFIG_DIR="$PWD/config"
+CONFIG_DIR="$BASE_DIR/purple-overviewer/config"
 
 genPoi () {
   docker run \
     --rm \
-    -v $SERVER_DIR:/tmp/server/:ro \
+    -v $WORLD_DIR:/tmp/server/:ro \
     -v $EXPORT_DIR/:/tmp/export/:rw \
     -v $TEXTURE_DIR/:/tmp/textures/:ro \
     -v $CONFIG_DIR/:/tmp/config/:ro \
@@ -31,7 +32,7 @@ genPoi () {
 genMaps () {
   docker run \
     --rm \
-    -v $SERVER_DIR:/tmp/server/:ro \
+    -v $WORLD_DIR:/tmp/server/:ro \
     -v $EXPORT_DIR/:/tmp/export/:rw \
     -v $TEXTURE_DIR/:/tmp/textures/:ro \
     -v $CONFIG_DIR/:/tmp/config/:ro \
@@ -39,11 +40,10 @@ genMaps () {
 }
 
 # run the docker image to generate POI
-#genPoi
+#genPoi && echo -e "\nPOI created!\n"
 
 # run the docker image to generate maps
-# genMaps
+# genMaps && echo -e "\nMaps created!\n"
 
 # run everything consecutively
-genPoi && genMaps
-echo -e "\nMaps created!\n"
+genPoi && genMaps && echo -e "\nMaps and POI created!\n"

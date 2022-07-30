@@ -1,23 +1,18 @@
-global escape
-from cgi import escape
-
-worlds["purple"] = "/tmp/server/world/"
-worlds["purple_nether"] = "/tmp/server/world_nether/"
+worlds["purple"] = "/tmp/server/paper1191/"
+worlds["purple_nether"] = "/tmp/server/paper1191_nether/"
 
 # default textures
-#texturepath = "/tmp/textures/1.16.4.jar"
+texturepath = "/tmp/textures/1.19.1.jar"
 
 # custom textures
-texturepath = "/tmp/textures/"
-# texturepath = "/tmp/textures/ChromaHills-128x-1.15-v1.zip"
-# texturepath = "/tmp/textures/Monsterley_128_15_200405.zip"
+# texturepath = "/tmp/textures/Clarity_1.19.zip"
 
 # output directory
 outputdir = "/tmp/export/"
 
 processes = 8
 defaultzoom = 5
-my_crop = (-2000, -2000, 2000, 2000)
+my_crop = (-1000, -1000, 1000, 1000)
 
 def playerIcons(poi):
     if poi['id'] == 'Player':
@@ -32,7 +27,7 @@ def playerSpawns(poi):
 def signFilter(poi):
     if poi['id'] == 'Sign' or poi['id'] == 'minecraft:sign':
         poi['icon'] = "https://freezion.com/assets/sign.png"
-        text = "\n".join(map(escape, [poi['Text1'], poi['Text2'], poi['Text3'], poi['Text4']]))
+        text = "\n".join(map([poi['Text1'], poi['Text2'], poi['Text3'], poi['Text4']]))
         if text.__contains__('...'):
             text.replace('...', '')
         # if text.__eq__(''):
