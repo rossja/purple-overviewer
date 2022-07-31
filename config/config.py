@@ -1,3 +1,6 @@
+global escape
+from html import escape
+
 worlds["purple"] = "/tmp/server/paper1191/"
 worlds["purple_nether"] = "/tmp/server/paper1191_nether/"
 
@@ -26,15 +29,7 @@ def playerSpawns(poi):
 
 def signFilter(poi):
     if poi['id'] == 'Sign' or poi['id'] == 'minecraft:sign':
-        poi['icon'] = "https://freezion.com/assets/sign.png"
-        text = "\n".join(map([poi['Text1'], poi['Text2'], poi['Text3'], poi['Text4']]))
-        if text.__contains__('...'):
-            text.replace('...', '')
-        # if text.__eq__(''):
-        #     return # return nothing if the sign is blank (because farms)
-        # else:
-        #     return text # otherwise return the content of the sign
-        return text
+        return escape("\n".join([poi['Text1'], poi['Text2'], poi['Text3'], poi['Text4']]))
 
 def chestFilter(poi):
     if poi['id'] == 'Chest' or poi['id'] == 'minecraft:chest':
@@ -44,7 +39,7 @@ markerList = [
     dict(name="Players", filterFunction=playerIcons),
     dict(name="Beds", filterFunction=playerSpawns),
     dict(name="Signs", filterFunction=signFilter),
-    #dict(name="Chests", filterFunction=chestFilter)
+    dict(name="Chests", filterFunction=chestFilter)
 ]
 
 renders["day_complete_smooth"] = {
