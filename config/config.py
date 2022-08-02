@@ -13,7 +13,7 @@ texturepath = "/tmp/textures/1.19.1.jar"
 # output directory
 outputdir = "/tmp/export/"
 
-processes = 8
+processes = 16
 defaultzoom = 5
 my_crop = (-2000, -2000, 2000, 2000)
 
@@ -60,13 +60,13 @@ renders["night_complete"] = {
      'markers': markerList
 }
 
-renders["nether"] = {
-     "world": "purple_nether",
-     "title": "Nether",
-     "rendermode": "nether",
-     "dimension": "nether",
-     'crop': (-500, -500, 500, 500)
- }
+#renders["nether"] = {
+#     "world": "purple_nether",
+#     "title": "Nether",
+#     "rendermode": "nether",
+#     "dimension": "nether",
+#     'crop': (-500, -500, 500, 500)
+# }
 
 # Import the Observers
 from .observer import MultiplexingObserver, ProgressBarObserver, JSObserver
