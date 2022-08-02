@@ -13,7 +13,7 @@ texturepath = "/tmp/textures/1.19.1.jar"
 # output directory
 outputdir = "/tmp/export/"
 
-processes = 16
+#processes = 16
 defaultzoom = 5
 my_crop = (-2000, -2000, 2000, 2000)
 
